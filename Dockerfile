@@ -12,7 +12,7 @@ RUN         mkdir -p /etc/sudoers.d && \
 
 ENV         DEBIAN_FRONTEND=noninteractive
 RUN         apt update && \
-            apt install -y iproute2 jq unzip rsync curl libpango-1.0-0 libpangoft2-1.0-0 libgtk-3-0 zenity renderdoc && \
+            apt install -y --no-install-recommends iproute2 jq unzip rsync curl libpango-1.0-0t64 libpangoft2-1.0-0t64 libgtk-3-0t64 zenity && \
             apt-get clean
 
 # Create directories and copy files
