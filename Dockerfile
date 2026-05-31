@@ -11,9 +11,15 @@ RUN         mkdir -p /etc/sudoers.d && \
             chmod 0440 /etc/sudoers.d/flatdeb
 
 ENV         DEBIAN_FRONTEND=noninteractive
-RUN         apt update && \
-            apt install -y --no-install-recommends iproute2 jq unzip rsync curl libpango-1.0-0t64 libpangoft2-1.0-0t64 libgtk-3-0t64 zenity && \
-            apt-get clean
+RUN apt update && \
+    apt install -y \
+        libgtk-3-0=3.24.24-4+steamrt3.2 \
+        libpango-1.0-0=1.46.2-3+steamrt3.2 \
+        libpangoft2-1.0-0 \
+        libpangocairo-1.0-0 \
+        zenity \
+        binutils && \
+	apt-get clean
 
 # Create directories and copy files
 RUN         mkdir -p /scripts /utils
